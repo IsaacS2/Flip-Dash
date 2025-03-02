@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://cjxi73ygx5geb"]
 
-[ext_resource type="Script" path="res://Player.gd" id="1_vkev6"]
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_vkev6"]
 [ext_resource type="Texture2D" uid="uid://bd0g7r6448j8a" path="res://Art/knight.png" id="2_03cpa"]
-[ext_resource type="Script" path="res://Scenes/PlayerSprite.gd" id="3_v7hpm"]
+[ext_resource type="Script" path="res://Scripts/PlayerSprite.gd" id="3_v7hpm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xsl0l"]
 radius = 6.0
@@ -15,7 +15,7 @@ position = Vector2(0, -6)
 shape = SubResource("CircleShape2D_xsl0l")
 
 [node name="PlayerSprite" type="Sprite2D" parent="."]
-position = Vector2(1, -12)
+position = Vector2(0, -12)
 texture = ExtResource("2_03cpa")
 hframes = 8
 vframes = 8

@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8waqngxg7ytg"]
+
+[ext_resource type="Script" path="res://Scripts/CameraManager.gd" id="1_snrfx"]
+
+[node name="Cameras" type="Node2D"]
+script = ExtResource("1_snrfx")
+
+[node name="Front" type="Camera2D" parent="."]
+position = Vector2(200, 0)
+
+[node name="Back" type="Camera2D" parent="."]
+position = Vector2(-200, 0)
+enabled = false
+zoom = Vector2(-1, 1)

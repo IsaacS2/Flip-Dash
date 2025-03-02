@@ -1,22 +1,15 @@
 [gd_scene load_steps=5 format=3 uid="uid://btld1pccadatb"]
 
-[ext_resource type="Script" path="res://Scripts/CameraManager.gd" id="1_ddlql"]
 [ext_resource type="Texture2D" uid="uid://6nhndgsmrqxn" path="res://Art/slime_green.png" id="3_nyj7j"]
 [ext_resource type="Texture2D" uid="uid://c0yly0pw6m47l" path="res://Art/slime_purple.png" id="4_w2awm"]
 [ext_resource type="PackedScene" uid="uid://cjxi73ygx5geb" path="res://Scenes/Player.tscn" id="4_wb7p1"]
+[ext_resource type="PackedScene" uid="uid://c8waqngxg7ytg" path="res://Scenes/Cameras.tscn" id="5_th0x4"]
 
 [node name="Level" type="Node2D"]
-script = ExtResource("1_ddlql")
-
-[node name="Front" type="Camera2D" parent="."]
-
-[node name="Back" type="Camera2D" parent="."]
-position = Vector2(-200, 0)
-enabled = false
-zoom = Vector2(-1, 1)
 
 [node name="SlimeGreen" type="Sprite2D" parent="."]
-position = Vector2(178, 11)
+position = Vector2(450, 40)
+scale = Vector2(6.90625, 1)
 texture = ExtResource("3_nyj7j")
 
 [node name="SlimePurple" type="Sprite2D" parent="."]
@@ -24,4 +17,6 @@ position = Vector2(-279, -12)
 texture = ExtResource("4_w2awm")
 
 [node name="Player" parent="." instance=ExtResource("4_wb7p1")]
-position = Vector2(-132, 20)
+unique_name_in_owner = true
+
+[node name="Cameras" parent="." instance=ExtResource("5_th0x4")]
