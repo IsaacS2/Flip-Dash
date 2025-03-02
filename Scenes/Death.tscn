@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7inxgl6xrpb4"]
+
+[ext_resource type="Script" path="res://Scenes/DeathObject.gd" id="1_eb7w3"]
+
+[node name="Death" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_eb7w3")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

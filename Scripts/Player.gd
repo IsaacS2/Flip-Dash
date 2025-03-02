@@ -2,6 +2,8 @@ class_name Player
 
 extends CharacterBody2D
 
+signal on_death
+
 const SPEED = 250.0
 const JUMP_VELOCITY = -400.0
 
@@ -59,3 +61,7 @@ func _return_velocity():
 func _jump():
 	velocity.y = JUMP_VELOCITY
 	jumpBuffer = 0
+
+
+func _on_death():
+	emit_signal("on_death")
