@@ -7,8 +7,6 @@ signal notify_game_manager
 @onready var player: Player = %Player
 @onready var cameras: CameraManager = $Cameras
 
-var pause : bool = false
-var pauseTime : float = 0.3
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
