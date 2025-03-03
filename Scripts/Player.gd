@@ -16,6 +16,7 @@ var jumpBuffer : float
 var jumpBufferTime : float = 0.09
 var groundBuffer : float
 var groundBufferTime : float = 0.09
+var spawnPoint : Vector2 = Vector2.ZERO
 
 func _process(delta: float) -> void:
 	if (jumpBuffer > 0):
@@ -73,3 +74,11 @@ func _jump():
 
 func _on_death():
 	emit_signal("on_death")
+
+
+func _sent_spawn_point(location : Vector2):
+	spawnPoint = location
+
+
+func _reposition():
+	position = spawnPoint

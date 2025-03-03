@@ -27,7 +27,7 @@ func _flip_things() -> void:
 
 
 func _reset_for_checkpoint():
-	player.position = Vector2.ZERO
+	player._reposition()
 	player.velocity = Vector2.ZERO
 	player.direction = 1
 	player.player_sprite.scale.x = 1
