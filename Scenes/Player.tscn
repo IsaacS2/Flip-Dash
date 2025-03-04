@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cjxi73ygx5geb"]
+[gd_scene load_steps=6 format=3 uid="uid://cjxi73ygx5geb"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_vkev6"]
 [ext_resource type="Texture2D" uid="uid://bd0g7r6448j8a" path="res://Art/knight.png" id="2_03cpa"]
 [ext_resource type="Script" path="res://Scripts/PlayerSprite.gd" id="3_v7hpm"]
+[ext_resource type="PackedScene" uid="uid://dd5usuxdvehfo" path="res://Scenes/Weapon.tscn" id="4_y8sx4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xsl0l"]
 radius = 6.0
@@ -21,3 +22,6 @@ texture = ExtResource("2_03cpa")
 hframes = 8
 vframes = 8
 script = ExtResource("3_v7hpm")
+
+[node name="WeaponHitbox" parent="." instance=ExtResource("4_y8sx4")]
+position = Vector2(0, -6)

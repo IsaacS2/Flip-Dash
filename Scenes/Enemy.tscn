@@ -1,3 +1,23 @@
-[gd_scene format=3 uid="uid://1qtx2orgoiih"]
+[gd_scene load_steps=4 format=3 uid="uid://1qtx2orgoiih"]
+
+[ext_resource type="PackedScene" uid="uid://c7inxgl6xrpb4" path="res://Scenes/Death.tscn" id="1_ytju8"]
+[ext_resource type="Texture2D" uid="uid://6nhndgsmrqxn" path="res://Art/slime_green.png" id="2_1nalc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gnarl"]
+size = Vector2(12, 9)
 
 [node name="Enemy" type="Node2D"]
+
+[node name="Death" parent="." instance=ExtResource("1_ytju8")]
+collision_layer = 5
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Death"]
+position = Vector2(0, -4.5)
+shape = SubResource("RectangleShape2D_gnarl")
+
+[node name="EnemySprite" type="Sprite2D" parent="."]
+position = Vector2(0, -12)
+texture = ExtResource("2_1nalc")
+hframes = 4
+vframes = 3

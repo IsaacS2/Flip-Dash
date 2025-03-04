@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://btld1pccadatb"]
+[gd_scene load_steps=11 format=4 uid="uid://btld1pccadatb"]
 
 [ext_resource type="Script" path="res://Scripts/LevelManager.gd" id="1_qatuc"]
 [ext_resource type="Texture2D" uid="uid://bllnbbbrf4o73" path="res://Art/world_tileset.png" id="3_gdscp"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c7inxgl6xrpb4" path="res://Scenes/Death.tscn" id="5_d3ir6"]
 [ext_resource type="PackedScene" uid="uid://c8waqngxg7ytg" path="res://Scenes/Cameras.tscn" id="5_th0x4"]
 [ext_resource type="PackedScene" uid="uid://s8er18oyxsby" path="res://Scenes/Checkpoint.tscn" id="6_l2kji"]
+[ext_resource type="PackedScene" uid="uid://cepqf76wv6hk7" path="res://Scenes/StaticEnemy.tscn" id="7_whwxi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i0k3x"]
 texture = ExtResource("3_gdscp")
@@ -293,5 +294,14 @@ position = Vector2(2312, 31)
 
 [node name="Checkpoint2" parent="Checkpoints" instance=ExtResource("6_l2kji")]
 position = Vector2(1377, 31)
+
+[node name="StaticEnemy" parent="." instance=ExtResource("7_whwxi")]
+position = Vector2(408, 32)
+
+[node name="StaticEnemy2" parent="." instance=ExtResource("7_whwxi")]
+position = Vector2(280, 31)
+
+[node name="StaticEnemy3" parent="." instance=ExtResource("7_whwxi")]
+position = Vector2(776, 31)
 
 [connection signal="on_flip" from="Cameras" to="." method="_on_cameras_on_flip"]

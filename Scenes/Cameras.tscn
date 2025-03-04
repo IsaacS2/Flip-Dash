@@ -11,6 +11,7 @@ position = Vector2(200, 0)
 
 [node name="FrontTimeLabel" type="RichTextLabel" parent="Front"]
 unique_name_in_owner = true
+z_index = 1
 offset_left = -506.0
 offset_top = -250.0
 offset_right = -383.0
@@ -25,6 +26,7 @@ zoom = Vector2(-1, 1)
 
 [node name="BackTimeLabel" type="RichTextLabel" parent="Back"]
 unique_name_in_owner = true
+z_index = 1
 offset_left = 506.0
 offset_top = -250.0
 offset_right = 629.0

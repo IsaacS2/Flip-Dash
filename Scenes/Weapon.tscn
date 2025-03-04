@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://dd5usuxdvehfo"]
+
+[ext_resource type="Script" path="res://Scripts/Weapon.gd" id="1_lnmss"]
+[ext_resource type="Texture2D" uid="uid://c0yly0pw6m47l" path="res://Art/slime_purple.png" id="2_k2n8x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mc7w3"]
+size = Vector2(30, 30)
+
+[node name="Weapon" type="Area2D"]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_lnmss")
+
+[node name="WeaponBody" type="CollisionShape2D" parent="."]
+position = Vector2(15, -2)
+shape = SubResource("RectangleShape2D_mc7w3")
+
+[node name="WeaponSprite" type="Sprite2D" parent="."]
+position = Vector2(15, -17)
+scale = Vector2(2, 2)
+texture = ExtResource("2_k2n8x")
+hframes = 4
+vframes = 3
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
