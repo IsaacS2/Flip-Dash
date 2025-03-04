@@ -30,6 +30,7 @@ func _flip_things() -> void:
 
 
 func _reset_for_checkpoint():
+	get_tree().call_group("Enemy", "_reenable")
 	if (player):
 		player._reposition()
 		player.velocity = Vector2.ZERO
@@ -50,5 +51,4 @@ func _reset_level():
 	_reset_player()
 	_reset_for_checkpoint()
 	get_tree().call_group("Checkpoints", "_reset_checkpoint")
-	get_tree().call_group("Enemy", "_reenable")
 	if (cameras): cameras._reset_timer()

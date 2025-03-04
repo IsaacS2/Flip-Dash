@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://drox5ja8cbao8"]
+
+[ext_resource type="PackedScene" uid="uid://c7inxgl6xrpb4" path="res://Scenes/Death.tscn" id="1_uwore"]
+[ext_resource type="Texture2D" uid="uid://6nhndgsmrqxn" path="res://Art/slime_green.png" id="2_7by0p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g02al"]
+
+[node name="Spike" type="Node2D"]
+
+[node name="Death" parent="." instance=ExtResource("1_uwore")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Death"]
+shape = SubResource("RectangleShape2D_g02al")
+
+[node name="SpikeSprite" type="Sprite2D" parent="."]
+position = Vector2(0, -14)
+scale = Vector2(2, 2)
+texture = ExtResource("2_7by0p")
+hframes = 4
+vframes = 3
+frame = 1
