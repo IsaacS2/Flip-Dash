@@ -3,6 +3,7 @@ class_name LevelManager
 extends Node2D
 
 signal notify_game_manager
+signal on_game_over
 
 @onready var player: Player = %Player
 @onready var cameras: CameraManager = $Cameras
@@ -10,6 +11,7 @@ signal notify_game_manager
 
 func _ready() -> void:
 	if (player): player.on_death.connect(_reset_for_checkpoint)
+	if (cameras): cameras.on_time_up.connect(_reset_level)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -27,13 +29,24 @@ func _flip_things() -> void:
 
 
 func _reset_for_checkpoint():
-	player._reposition()
-	player.velocity = Vector2.ZERO
-	player.direction = 1
-	player.player_sprite.scale.x = 1
-	if (cameras.activeCamera == cameras.back):
+	if (player):
+		player._reposition()
+		player.velocity = Vector2.ZERO
+		player.direction = 1
+		player.player_sprite.scale.x = 1
+	if (cameras && cameras.activeCamera == cameras.back):
 		cameras._flip_camera()
+		cameras.position.x = player.position.x
 
 
 func _reset_player() -> void:
 	player._return_velocity()
+
+
+func _reset_level():
+	emit_signal("on_game_over")
+	player._sent_spawn_point(Vector2.ZERO)
+	_reset_player()
+	_reset_for_checkpoint()
+	get_tree().call_group("Checkpoints", "_reset_checkpoint")
+	if (cameras): cameras._reset_timer()

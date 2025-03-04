@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c8waqngxg7ytg"]
+[gd_scene load_steps=3 format=3 uid="uid://c8waqngxg7ytg"]
 
 [ext_resource type="Script" path="res://Scripts/CameraManager.gd" id="1_snrfx"]
+[ext_resource type="PackedScene" uid="uid://c8q7fo1l5wnsr" path="res://Scenes/Timer.tscn" id="2_34chw"]
 
 [node name="Cameras" type="Node2D"]
 script = ExtResource("1_snrfx")
@@ -8,7 +9,27 @@ script = ExtResource("1_snrfx")
 [node name="Front" type="Camera2D" parent="."]
 position = Vector2(200, 0)
 
+[node name="FrontTimeLabel" type="RichTextLabel" parent="Front"]
+unique_name_in_owner = true
+offset_left = -506.0
+offset_top = -250.0
+offset_right = -383.0
+offset_bottom = -210.0
+text = "Time:"
+
 [node name="Back" type="Camera2D" parent="."]
+visible = false
 position = Vector2(-200, 0)
 enabled = false
 zoom = Vector2(-1, 1)
+
+[node name="BackTimeLabel" type="RichTextLabel" parent="Back"]
+unique_name_in_owner = true
+offset_left = 506.0
+offset_top = -250.0
+offset_right = 629.0
+offset_bottom = -210.0
+scale = Vector2(-1, 1)
+text = "Time:"
+
+[node name="Timer" parent="." instance=ExtResource("2_34chw")]
