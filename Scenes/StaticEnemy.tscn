@@ -14,7 +14,7 @@ texture = ExtResource("1_vpap6")
 hframes = 4
 vframes = 3
 
-[node name="Death" parent="." instance=ExtResource("2_5md3q")]
+[node name="Death" parent="." groups=["Enemy"] instance=ExtResource("2_5md3q")]
 collision_mask = 6
 
 [node name="EnemyCollider" type="CollisionShape2D" parent="Death"]

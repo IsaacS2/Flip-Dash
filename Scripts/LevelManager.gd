@@ -11,8 +11,9 @@ signal on_game_over
 
 func _ready() -> void:
 	if (player): player.on_death.connect(_reset_for_checkpoint)
-	if (cameras): cameras.on_time_up.connect(_reset_level)
-
+	if (cameras): 
+		cameras.on_time_up.connect(_reset_level)
+		cameras.on_flip.connect(_on_cameras_on_flip)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -49,4 +50,5 @@ func _reset_level():
 	_reset_player()
 	_reset_for_checkpoint()
 	get_tree().call_group("Checkpoints", "_reset_checkpoint")
+	get_tree().call_group("Enemy", "_reenable")
 	if (cameras): cameras._reset_timer()

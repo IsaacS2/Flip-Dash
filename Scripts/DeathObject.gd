@@ -1,13 +1,17 @@
 class_name Death
-
 extends Area2D
 
+var danger : bool = true
+
 func _on_body_entered(body: Node2D) -> void:
-	if (body is Player):
+	if (body is Player && danger):
 		body._on_death()
 
 func _on_area_entered(area: Area2D) -> void:
-	print("item enters")
 	if (area is Weapon && area.active):
-		queue_free()
-		get_parent().queue_free()
+		danger = false
+		get_parent().visible = false
+
+func _reenable() -> void:
+	get_parent().visible = true
+	danger = true

@@ -4,7 +4,7 @@ extends Node
 
 var flip_pause : bool = false
 var flip_pause_timer : float
-var flip_pause_total_time : float = 0.15
+var flip_pause_total_time : float = 0.12
 
 func _ready() -> void:
 	if (level):

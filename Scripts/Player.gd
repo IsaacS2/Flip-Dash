@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 signal on_death
 
-const SPEED = 7000.0
+const SPEED = 8000.0
 const JUMP_VELOCITY = -400.0
 
 @onready var player_sprite: PlayerSprite = $PlayerSprite
