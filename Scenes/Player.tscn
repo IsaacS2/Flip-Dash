@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cjxi73ygx5geb"]
+[gd_scene load_steps=16 format=3 uid="uid://cjxi73ygx5geb"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_vkev6"]
 [ext_resource type="Texture2D" uid="uid://bnqwbjkd7fmef" path="res://Art/ArtSheet1.png" id="2_kiw0d"]
@@ -15,6 +15,18 @@ region = Rect2(0, 96, 128, 96)
 [sub_resource type="AtlasTexture" id="AtlasTexture_t2cu8"]
 atlas = ExtResource("2_kiw0d")
 region = Rect2(0, 192, 128, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3p4f"]
+atlas = ExtResource("2_kiw0d")
+region = Rect2(128, 96, 128, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vp6ik"]
+atlas = ExtResource("2_kiw0d")
+region = Rect2(96, 384, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7hl86"]
+atlas = ExtResource("2_kiw0d")
+region = Rect2(96, 288, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k0y8a"]
 atlas = ExtResource("2_kiw0d")
@@ -47,6 +59,30 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_e3p4f")
+}],
+"loop": false,
+"name": &"Death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vp6ik")
+}],
+"loop": true,
+"name": &"FlipBlue",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7hl86")
+}],
+"loop": true,
+"name": &"FlipRed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_k0y8a")
 }, {
 "duration": 1.0,
@@ -74,10 +110,8 @@ shape = SubResource("CapsuleShape2D_j61kr")
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -48)
 sprite_frames = SubResource("SpriteFrames_poju8")
-animation = &"Bite"
+animation = &"FlipBlue"
 autoplay = "Walk"
-frame = 1
-frame_progress = 1.0
 script = ExtResource("3_v7hpm")
 
 [node name="WeaponHitbox" parent="." instance=ExtResource("4_y8sx4")]

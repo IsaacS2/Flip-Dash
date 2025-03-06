@@ -16,6 +16,8 @@ var jumpBuffer : float
 var jumpBufferTime : float = 0.09
 var groundBuffer : float
 var groundBufferTime : float = 0.09
+var flipBuffer : float
+var flipBufferTime : float = 0.1
 var attackBuffer : float
 var attackBufferTime : float = 0.4
 var attackEndLag : float = 0.1
@@ -25,17 +27,15 @@ func _ready() -> void:
 	_reset_weapon()
 
 func _process(delta: float) -> void:
-	if (jumpBuffer > 0):
-		jumpBuffer -= delta
-	if (groundBuffer > 0):
-		groundBuffer -= delta
+	jumpBuffer = max(0, jumpBuffer - delta)
+	groundBuffer = max(0, groundBuffer - delta)
+	
 	if (!frozen && Input.is_action_just_pressed("Attack") && attackBuffer <= 0):
 		_attack()
 	if (attackBuffer > 0 && !frozen):
 		attackBuffer -= delta
 		if (attackBuffer < attackEndLag && weapon_hitbox.active):
-			player_sprite.animation = "Walk"
-			player_sprite.play()
+			_reset_walk()
 			_hide_weapon()
 
 func _physics_process(delta: float) -> void:
@@ -62,15 +62,26 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 
 func _flip_velocity():
-	if (weapon_hitbox): weapon_hitbox._flip_weapon()
+	if (weapon_hitbox.active): 
+		_hide_weapon()
+	weapon_hitbox._flip_weapon()
+	attackBuffer = 0
+		
 	direction *= -1
-	if (player_sprite): player_sprite._flip_sprite()
+	if (player_sprite): 
+		player_sprite._flip_sprite()
+		if (direction == 1):
+			player_sprite.animation = "FlipRed"
+		else:
+			player_sprite.animation = "FlipBlue"
+			
 	velocityStorage = velocity
 	velocity = Vector2.ZERO
 	frozen = true
 
 func _return_velocity():
 	velocity = velocityStorage
+	_reset_walk()
 	frozen = false
 
 func _jump():
@@ -86,9 +97,12 @@ func _sent_spawn_point(location : Vector2):
 
 func _reposition():
 	_reset_weapon()
+	_reset_walk()
 	position = spawnPoint
+	attackBuffer = 0
 
 func _attack():
+	print("attack")
 	weapon_hitbox._activate()
 	player_sprite.animation = "Bite"
 	attackBuffer = attackBufferTime + attackEndLag
@@ -99,3 +113,7 @@ func _reset_weapon():
 
 func _hide_weapon():
 	weapon_hitbox._deactivate()
+
+func _reset_walk():
+	player_sprite.animation = "Walk"
+	player_sprite.play()

@@ -10,7 +10,7 @@ func _ready() -> void:
 	pass
 
 func _process(delta: float) -> void:
-	pass
+	print(scale)
 
 func _flip_weapon() -> void:
 	scale.x *= -1
