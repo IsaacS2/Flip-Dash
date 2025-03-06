@@ -2,6 +2,7 @@ class_name Player
 extends CharacterBody2D
 
 signal on_death
+signal on_death_contact
 
 const SPEED = 12000.0
 const JUMP_VELOCITY = -400.0
@@ -12,6 +13,8 @@ const JUMP_VELOCITY = -400.0
 var velocityStorage : Vector2
 var frozen : bool = false
 var direction : int = 1
+var spawnPoint : Vector2 = Vector2.ZERO
+
 var jumpBuffer : float
 var jumpBufferTime : float = 0.09
 var groundBuffer : float
@@ -21,7 +24,8 @@ var flipBufferTime : float = 0.1
 var attackBuffer : float
 var attackBufferTime : float = 0.4
 var attackEndLag : float = 0.1
-var spawnPoint : Vector2 = Vector2.ZERO
+var deathBuffer : float
+var deathBufferTime : float = 0.5
 
 func _ready() -> void:
 	_reset_weapon()
@@ -37,6 +41,10 @@ func _process(delta: float) -> void:
 		if (attackBuffer < attackEndLag && weapon_hitbox.active):
 			_reset_walk()
 			_hide_weapon()
+	if (deathBuffer > 0):
+		deathBuffer -= delta
+		if (deathBuffer <= 0):
+			emit_signal("on_death")
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -90,7 +98,10 @@ func _jump():
 	jumpBuffer = 0
 
 func _on_death():
-	emit_signal("on_death")
+	player_sprite.animation = "Death"
+	deathBuffer = deathBufferTime
+	frozen = true
+	emit_signal("on_death_contact")
 
 func _sent_spawn_point(location : Vector2):
 	spawnPoint = location
@@ -99,7 +110,10 @@ func _reposition():
 	_reset_weapon()
 	_reset_walk()
 	position = spawnPoint
+	frozen = false
+	jumpBuffer = 0
 	attackBuffer = 0
+	deathBuffer = 0
 
 func _attack():
 	print("attack")
