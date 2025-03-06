@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 signal on_death
 
-const SPEED = 8000.0
+const SPEED = 12000.0
 const JUMP_VELOCITY = -400.0
 
 @onready var player_sprite: PlayerSprite = $PlayerSprite
@@ -34,6 +34,8 @@ func _process(delta: float) -> void:
 	if (attackBuffer > 0 && !frozen):
 		attackBuffer -= delta
 		if (attackBuffer < attackEndLag && weapon_hitbox.active):
+			player_sprite.animation = "Walk"
+			player_sprite.play()
 			_hide_weapon()
 
 func _physics_process(delta: float) -> void:
@@ -88,6 +90,7 @@ func _reposition():
 
 func _attack():
 	weapon_hitbox._activate()
+	player_sprite.animation = "Bite"
 	attackBuffer = attackBufferTime + attackEndLag
 
 func _reset_weapon():

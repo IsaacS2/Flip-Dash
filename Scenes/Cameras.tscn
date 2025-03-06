@@ -7,31 +7,31 @@
 script = ExtResource("1_snrfx")
 
 [node name="Front" type="Camera2D" parent="."]
-position = Vector2(100, -80)
+position = Vector2(200, -212)
 
 [node name="FrontTimeLabel" type="RichTextLabel" parent="Front"]
 unique_name_in_owner = true
 z_index = 1
-offset_left = -254.0
-offset_top = -130.0
-offset_right = -131.0
-offset_bottom = -90.0
+offset_left = -510.0
+offset_top = -255.0
+offset_right = -387.0
+offset_bottom = -215.0
 text = "Time:"
 metadata/_edit_use_anchors_ = true
 
 [node name="Back" type="Camera2D" parent="."]
 visible = false
-position = Vector2(-100, -80)
+position = Vector2(-200, -212)
 enabled = false
 zoom = Vector2(-1, 1)
 
 [node name="BackTimeLabel" type="RichTextLabel" parent="Back"]
 unique_name_in_owner = true
 z_index = 1
-offset_left = 254.0
-offset_top = -130.0
-offset_right = 377.0
-offset_bottom = -90.0
+offset_left = 510.0
+offset_top = -255.0
+offset_right = 633.0
+offset_bottom = -215.0
 scale = Vector2(-1, 1)
 text = "Time:"
 

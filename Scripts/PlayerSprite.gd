@@ -1,6 +1,6 @@
 class_name PlayerSprite
 
-extends Sprite2D
+extends AnimatedSprite2D
 
 func _flip_sprite():
 	scale.x *= -1
