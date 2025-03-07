@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://ijswhn8xt8tu"]
+[gd_scene load_steps=17 format=4 uid="uid://ijswhn8xt8tu"]
 
 [ext_resource type="Script" path="res://Scripts/LevelManager.gd" id="1_yhax2"]
 [ext_resource type="PackedScene" uid="uid://cjxi73ygx5geb" path="res://Scenes/Player.tscn" id="2_68lck"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://drox5ja8cbao8" path="res://Scenes/Spike.tscn" id="6_ss0b8"]
 [ext_resource type="PackedScene" uid="uid://cepqf76wv6hk7" path="res://Scenes/StaticEnemy.tscn" id="7_anoqn"]
 [ext_resource type="PackedScene" uid="uid://s8er18oyxsby" path="res://Scenes/Checkpoint.tscn" id="8_nf5ia"]
+[ext_resource type="Texture2D" uid="uid://d20dg1bp8n4f1" path="res://Art/SharkBackground.png" id="10_cgnbe"]
+[ext_resource type="Script" path="res://Scripts/SharkBackground.gd" id="11_g8alo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i0k3x"]
 texture = ExtResource("4_2onkk")
@@ -468,5 +470,19 @@ scale = Vector2(3.51423, -7.8832)
 [node name="Spike17" parent="SpikeColliders" instance=ExtResource("6_ss0b8")]
 position = Vector2(5944, -214)
 scale = Vector2(1.88048, 17.5853)
+
+[node name="SharkBackground" type="TextureRect" parent="."]
+unique_name_in_owner = true
+modulate = Color(0.244776, 0.244776, 0.244776, 1)
+z_index = -1
+texture_filter = 1
+texture_repeat = 2
+offset_left = -590.0
+offset_top = -468.0
+offset_right = 6598.0
+offset_bottom = 44.0
+texture = ExtResource("10_cgnbe")
+stretch_mode = 1
+script = ExtResource("11_g8alo")
 
 [connection signal="on_flip" from="Cameras" to="." method="_on_cameras_on_flip"]

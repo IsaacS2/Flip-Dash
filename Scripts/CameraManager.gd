@@ -10,6 +10,7 @@ signal on_time_up
 @onready var back: Camera2D = $Back
 @onready var player: CharacterBody2D = %Player
 @onready var timer: Timer = $Timer
+#@onready var shark_background: Background = %SharkBackground
 
 var activeCamera: Camera2D
 var cameraZoom: int = 1

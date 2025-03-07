@@ -7,6 +7,7 @@ signal on_game_over
 
 @onready var player: Player = %Player
 @onready var cameras: CameraManager = $Cameras
+@onready var shark_background: Background = %SharkBackground
 
 
 func _ready() -> void:
@@ -27,6 +28,7 @@ func _flip_things() -> void:
 	if (cameras): cameras._flip_camera()
 
 func _reset_for_checkpoint():
+	if (shark_background): shark_background._reset_background()
 	get_tree().call_group("Enemy", "_reenable")
 	if (player):
 		player._reposition()
