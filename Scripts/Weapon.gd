@@ -9,9 +9,6 @@ var weapon_scaler : float = 10
 func _ready() -> void:
 	pass
 
-func _process(delta: float) -> void:
-	print(scale)
-
 func _flip_weapon() -> void:
 	scale.x *= -1
 

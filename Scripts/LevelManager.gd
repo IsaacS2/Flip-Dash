@@ -38,7 +38,8 @@ func _reset_for_checkpoint():
 		cameras.position.x = player.position.x
 
 func _reset_player() -> void:
-	player._return_velocity()
+	print("Gotcha")
+	if (player && player.deathBuffer <= 0): player._return_velocity()
 
 func _reset_level():
 	emit_signal("on_game_over")

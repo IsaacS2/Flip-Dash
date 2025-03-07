@@ -58,6 +58,7 @@ func _disable_flip() -> void:
 
 func _time_up_message():
 	timeUp = true
+	flippable = false
 	player._on_death()
 
 func _reset_timer():

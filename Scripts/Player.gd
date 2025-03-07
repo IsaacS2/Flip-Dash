@@ -26,7 +26,7 @@ var attackBuffer : float
 var attackBufferTime : float = 0.4
 var attackEndLag : float = 0.1
 var deathBuffer : float
-var deathBufferTime : float = 0.5
+var deathBufferTime : float = 1
 
 func _ready() -> void:
 	_reset_weapon()
