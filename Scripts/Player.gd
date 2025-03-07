@@ -4,8 +4,8 @@ extends CharacterBody2D
 signal on_death
 signal on_death_contact
 
-const SPEED = 12000.0
-const JUMP_VELOCITY = -400.0
+const SPEED = 14000.0
+const JUMP_VELOCITY = -500.0
 
 @onready var player_sprite: PlayerSprite = $PlayerSprite
 @onready var weapon_hitbox: Weapon = $WeaponHitbox
@@ -15,6 +15,7 @@ var frozen : bool = false
 var direction : int = 1
 var spawnPoint : Vector2 = Vector2.ZERO
 
+var fallMultiplier : float = 2.5
 var jumpBuffer : float
 var jumpBufferTime : float = 0.09
 var groundBuffer : float
@@ -50,7 +51,10 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if (!frozen):
 		if not is_on_floor():
-			velocity += get_gravity() * delta
+			if (velocity.y < 0):
+				velocity += get_gravity() * (fallMultiplier - 1) * delta
+			else:
+				velocity += get_gravity() * delta
 		
 		else:
 			if (jumpBuffer > 0):

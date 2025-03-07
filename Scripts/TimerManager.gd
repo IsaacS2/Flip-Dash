@@ -5,7 +5,7 @@ signal time_up
 @onready var front_time_label: RichTextLabel = %FrontTimeLabel
 @onready var back_time_label: RichTextLabel = %BackTimeLabel
 
-const initialTime : int = 5
+const initialTime : int = 180
 
 var timeAmount : float = initialTime
 var lastSecond : int = initialTime

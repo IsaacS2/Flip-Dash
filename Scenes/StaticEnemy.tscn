@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cepqf76wv6hk7"]
 
-[ext_resource type="Texture2D" uid="uid://6nhndgsmrqxn" path="res://Art/slime_green.png" id="1_vpap6"]
+[ext_resource type="Texture2D" uid="uid://c0yly0pw6m47l" path="res://Art/slime_purple.png" id="1_q7yrh"]
 [ext_resource type="PackedScene" uid="uid://c7inxgl6xrpb4" path="res://Scenes/Death.tscn" id="2_5md3q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ycaa7"]
@@ -9,12 +9,14 @@ size = Vector2(12, 9)
 [node name="StaticEnemy" type="Node2D"]
 
 [node name="EnemySprite" type="Sprite2D" parent="."]
-position = Vector2(0, -12)
-texture = ExtResource("1_vpap6")
+position = Vector2(0, -36)
+scale = Vector2(3, 3)
+texture = ExtResource("1_q7yrh")
 hframes = 4
 vframes = 3
 
 [node name="Death" parent="." groups=["Enemy"] instance=ExtResource("2_5md3q")]
+scale = Vector2(3, 3)
 collision_mask = 6
 
 [node name="EnemyCollider" type="CollisionShape2D" parent="Death"]
