@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://drox5ja8cbao8"]
 
 [ext_resource type="PackedScene" uid="uid://c7inxgl6xrpb4" path="res://Scenes/Death.tscn" id="1_uwore"]
-[ext_resource type="Texture2D" uid="uid://6nhndgsmrqxn" path="res://Art/slime_green.png" id="2_7by0p"]
+[ext_resource type="Texture2D" uid="uid://dqmv86ai1f3vr" path="res://Art/Spikes.png" id="2_yrvfc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g02al"]
 
@@ -12,10 +12,15 @@
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Death"]
 shape = SubResource("RectangleShape2D_g02al")
 
-[node name="SpikeSprite" type="Sprite2D" parent="."]
-position = Vector2(0, -14)
-scale = Vector2(2, 2)
-texture = ExtResource("2_7by0p")
-hframes = 4
-vframes = 3
-frame = 1
+[node name="SpikeSprite" type="NinePatchRect" parent="Death/CollisionShape2D"]
+visible = false
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+texture = ExtResource("2_yrvfc")
+region_rect = Rect2(48, 0, 48, 48)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
