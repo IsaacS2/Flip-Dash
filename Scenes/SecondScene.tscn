@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqpcgd4rlta41"]
+
+[ext_resource type="Script" path="res://Scripts/Continue.gd" id="1_1yjyq"]
+[ext_resource type="Texture2D" uid="uid://ost3c6n8e8at" path="res://Art/SecondScene.png" id="1_pp124"]
+
+[node name="SecondScene" type="Node2D"]
+script = ExtResource("1_1yjyq")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="SecondSceneImage" type="Sprite2D" parent="."]
+texture = ExtResource("1_pp124")
+
+[node name="FirstText2" type="Label" parent="."]
+z_index = 1
+offset_left = 18.0
+offset_top = -221.0
+offset_right = 506.0
+offset_bottom = -121.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "With leaky makeshift gear, he stormed the castle
+of the late inventor, unaware that he'd soon find 
+something to help him on his quest..."
+
+[node name="FirstText" type="Label" parent="."]
+z_index = 1
+offset_left = -495.0
+offset_top = -217.0
+offset_right = -7.0
+offset_bottom = -117.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "One day, Mark overheard rumors of an invention 
+that could help him live on land."

@@ -1,6 +1,7 @@
 class_name Player
 extends CharacterBody2D
 
+signal on_pole_collect
 signal on_death
 signal on_death_contact
 
@@ -135,3 +136,6 @@ func _hide_weapon():
 func _reset_walk():
 	player_sprite.animation = "Walk"
 	player_sprite.play()
+
+func _activate_pole_powers():
+	emit_signal("on_pole_collect")

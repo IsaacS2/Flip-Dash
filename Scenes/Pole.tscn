@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dv0v2bao4c6ko"]
+
+[ext_resource type="Script" path="res://Scripts/Pole.gd" id="1_4jppt"]
+[ext_resource type="Texture2D" uid="uid://bnqwbjkd7fmef" path="res://Art/ArtSheet1.png" id="1_4o202"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5dc5n"]
+size = Vector2(20, 671)
+
+[node name="Pole" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_4jppt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -300.5)
+shape = SubResource("RectangleShape2D_5dc5n")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(27, -6)
+texture = ExtResource("1_4o202")
+hframes = 12
+vframes = 5
+frame = 6
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

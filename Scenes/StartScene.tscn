@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://bee4k41732pv6"]
+
+[ext_resource type="Texture2D" uid="uid://dtyppmltw61st" path="res://Art/Title.png" id="1_ickxk"]
+[ext_resource type="Script" path="res://Scripts/Continue.gd" id="1_r4yop"]
+
+[node name="StartScreen" type="Node2D"]
+script = ExtResource("1_r4yop")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Title" type="Sprite2D" parent="."]
+texture = ExtResource("1_ickxk")
+
+[node name="RichTextLabel" type="Label" parent="."]
+offset_left = -292.0
+offset_top = -168.0
+offset_right = -145.0
+offset_bottom = -93.0
+scale = Vector2(4, 4)
+text = "The story of 
+Barber Mark 
+the Shark"
+horizontal_alignment = 1

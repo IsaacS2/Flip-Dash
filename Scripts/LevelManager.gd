@@ -22,6 +22,7 @@ func _process(delta: float) -> void:
 
 func _on_cameras_on_flip() -> void:
 	emit_signal("notify_game_manager")
+	print("whatt1?")
 
 func _flip_things() -> void:
 	if (player): player._flip_velocity()
@@ -40,7 +41,6 @@ func _reset_for_checkpoint():
 		cameras.position.x = player.position.x
 
 func _reset_player() -> void:
-	print("Gotcha")
 	if (player && player.deathBuffer <= 0): player._return_velocity()
 
 func _reset_level():

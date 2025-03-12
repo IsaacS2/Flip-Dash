@@ -10,7 +10,6 @@ signal on_time_up
 @onready var back: Camera2D = $Back
 @onready var player: CharacterBody2D = %Player
 @onready var timer: Timer = $Timer
-#@onready var shark_background: Background = %SharkBackground
 
 var activeCamera: Camera2D
 var cameraZoom: int = 1
@@ -18,6 +17,7 @@ var flipBuffer: float
 var flipBufferTime: float = 0.25
 var timeUp = false
 var flippable = true
+@export var flipUnlocked : bool = false
 
 func _ready() -> void:
 	activeCamera = front
@@ -25,13 +25,14 @@ func _ready() -> void:
 	if (player): 
 		player.on_death_contact.connect(_disable_flip)
 		player.on_death.connect(_enable_flip)
+		player.on_pole_collect.connect(_allow_flipping)
 
 func _process(delta: float) -> void:
 	position.x = player.position.x
 	flipBuffer = max(0, flipBuffer - delta)
 	
 	# check if game isn't paused atm
-	if (Input.is_action_just_pressed("Flip") && flipBuffer <= 0 && flippable):
+	if (Input.is_action_just_pressed("Flip") && flipBuffer <= 0 && flippable && flipUnlocked):
 		flipBuffer = flipBufferTime
 		emit_signal("on_flip")
 
@@ -64,3 +65,7 @@ func _time_up_message():
 
 func _reset_timer():
 	if (timer): timer._restart_time()
+
+func _allow_flipping():
+	print("yes")
+	flipUnlocked = true

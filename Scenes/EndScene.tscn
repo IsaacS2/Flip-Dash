@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://kvhum1x4868j"]
+
+[ext_resource type="Texture2D" uid="uid://2v3jsi0h4b5q" path="res://Art/EndScene.png" id="1_vuy2i"]
+
+[node name="EndScene" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="EndSceneImage" type="Sprite2D" parent="."]
+texture = ExtResource("1_vuy2i")
+
+[node name="FirstText2" type="Label" parent="."]
+z_index = 1
+offset_left = 132.0
+offset_top = -44.0
+offset_right = 374.0
+offset_bottom = 39.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "The End"

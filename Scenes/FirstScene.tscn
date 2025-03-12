@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://dr3lx3qrl6rj"]
+
+[ext_resource type="Script" path="res://Scripts/Continue.gd" id="1_sihjb"]
+[ext_resource type="Texture2D" uid="uid://c6jy8w2mj3dgp" path="res://Art/FirstScene.png" id="1_w0g3m"]
+
+[node name="FirstScene" type="Node2D"]
+script = ExtResource("1_sihjb")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="FirstSceneImage" type="Sprite2D" parent="."]
+texture = ExtResource("1_w0g3m")
+
+[node name="FirstText" type="Label" parent="."]
+z_index = 1
+offset_left = -504.0
+offset_top = -246.0
+offset_right = -16.0
+offset_bottom = -146.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "There was once a shark, Mark, 
+that yearned to be a barber."
+
+[node name="FirstText2" type="Label" parent="."]
+z_index = 1
+offset_left = 11.0
+offset_top = -261.0
+offset_right = 505.0
+offset_bottom = -129.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Sadly, as a maco shark, he always 
+needed to move, and needed 
+water."
